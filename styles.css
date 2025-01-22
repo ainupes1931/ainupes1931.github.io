@@ -1,0 +1,687 @@
+/* 1. Root Variables */
+:root {
+    --blood: #8B0000;
+    --crimson: #DC143C;
+    --void: #000000;
+    --dark: #0a0a0a;
+    --white: #ffffff;
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --font-primary: 'Darker Grotesque', sans-serif;
+    --font-secondary: 'Syncopate', sans-serif;
+}
+
+/* 2. Base Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background: var(--void);
+    color: var(--white);
+    font-family: var(--font-primary);
+    line-height: 1.2;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    position: relative;
+    padding: 15rem 0;
+}
+
+/* 3. Loading Screen */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: var(--void);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-logo {
+    width: 200px;
+    height: auto;
+    animation: pulsate 2s infinite;
+}
+
+.loader-progress {
+    width: 200px;
+    height: 2px;
+    background: rgba(220, 20, 60, 0.2);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-progress::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--crimson);
+    animation: progress 1.5s linear infinite;
+}
+
+/* 4. Navigation */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.fraternity-name {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.chapter-name {
+    font-size: 1rem;
+    color: var(--crimson);
+    letter-spacing: 0.2em;
+}
+
+.menu {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+}
+
+.menu-link {
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    position: relative;
+    transition: var(--transition);
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--crimson);
+    transition: var(--transition);
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* This ensures full viewport height */
+    min-height: 800px; /* This ensures a minimum height on larger screens */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal 1.5s forwards;
+}
+
+.fraternity-title {
+    margin-bottom: 4rem;
+}
+
+.fraternity-title h2 {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--crimson);
+    margin-bottom: 0.5rem;
+}
+
+.fraternity-title h3 {
+    font-family: var(--font-primary);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+.chapter-title h1 {
+    font-family: var(--font-secondary);
+    font-size: clamp(3rem, 10vw, 7rem);
+    margin-bottom: 1rem;
+}
+
+.chapter-letters {
+    color: var(--crimson);
+}
+
+.chapter-subtitle {
+    font-family: var(--font-primary);
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    letter-spacing: 0.3em;
+    margin-bottom: 3rem;
+}
+
+.hero-info {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    opacity: 0.7;
+    letter-spacing: 0.1em;
+}
+
+/* 6. About Section */
+.about {
+    background: var(--void);
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--blood) 0%, transparent 70%);
+    opacity: 0.1;
+}
+
+.section-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 5rem;
+    position: relative;
+    padding-left: 2rem;
+    color: var(--crimson); /* Added to ensure visibility */
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--crimson);
+    transform: translateY(-50%);
+}
+
+.founders-info,
+.charter-members,
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text,
+.founders-info p,
+.charter-members p {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.founders-list,
+.members-list {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.mission-principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.principle-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.principle-card:hover {
+    transform: scale(1.05);
+}
+
+.principle-card h4 {
+    margin-bottom: 1rem;
+    color: var(--crimson);
+}
+
+.achievement-card,
+.leadership-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.achievement-card ul,
+.leadership-card ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        padding-left: 1rem;
+    }
+
+    .mission-principles {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stat-number {
+    font-family: var(--font-secondary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--crimson);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+}
+
+/* 7. Legacy Section */
+.legacy {
+    background: var(--dark);
+}
+
+.legacy-content {
+    display: grid;
+    gap: 5rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--crimson);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    width: 50%;
+    padding: 2rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 4rem;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 4rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--crimson);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item:nth-child(odd)::before {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -10px;
+}
+
+/* 8. Achievements Section */
+.achievements {
+    background: var(--void);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 3rem;
+    border-left: 4px solid var(--crimson);
+    transition: var(--transition);
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.achievement-card h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    color: var(--crimson);
+    margin-bottom: 2rem;
+}
+
+.achievement-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+
+/* 9. Brothers Section */
+.brothers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.brother-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2rem;
+    border-left: 4px solid var(--crimson);
+    transition: var(--transition);
+}
+
+.brother-card:hover {
+    transform: translateY(-10px);
+}
+
+.brother-name {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.brother-year {
+    color: var(--crimson);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* 10. Footer */
+.footer {
+    background: var(--dark);
+    padding: 6rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-fraternity {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    color: var(--crimson);
+}
+
+.footer-info {
+    text-align: right;
+    opacity: 0.7;
+    line-height: 1.8;
+}
+
+/* 11. Brothers Highlight Section */
+.brothers-highlight {
+    background: rgba(220, 20, 60, 0.05);
+    padding: 10rem 0;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.highlight-card {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 4px solid var(--crimson);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.highlight-image {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 400px;
+  }
+  
+  .highlight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(40%);
+    transition: var(--transition);
+  }
+
+.highlight-card:hover .highlight-image img {
+    filter: grayscale(0%) brightness(100%);
+    transform: scale(1.05);
+}
+
+.highlight-content {
+    padding: 2rem;
+}
+
+.brother-achievement {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.achievement-details {
+    opacity: 0.8;
+}
+
+/* 12. Single Achievement Section */
+.achievement {
+    min-height: 100vh;
+    background: var(--void);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 4rem 2rem;
+}
+
+.achievement::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 200px;
+    background: var(--crimson);
+    transform: translateY(-50%);
+}
+
+.achievement-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.achievement-title {
+    font-family: var(--font-secondary);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.1;
+    margin-bottom: 8rem;
+    padding-left: 2rem;
+}
+
+.achievement-text {
+    max-width: 800px;
+    padding-left: 2rem;
+}
+
+.achievement-text h2 {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+.achievement-text p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+.site-footer {
+    background-color: var(--void);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font-size: 1.2rem;
+    color: var(--gray-400);
+    font-family: 'Satisfy', cursive;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.signature {
+    font-family: 'Satisfy', cursive;
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--crimson);
+    display: inline-block;
+    transform: rotate(-5deg);
+}
+
+@media (max-width: 768px) {
+    .footer-text {
+        font-size: 1rem;
+    }
+
+    .signature {
+        font-size: 1.5rem;
+    }
+}

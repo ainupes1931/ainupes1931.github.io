@@ -1,0 +1,442 @@
+/* Variables */
+:root {
+    --color-background: #121212;
+    --color-primary: #dc143c;
+    --color-text: #ffffff;
+    --transition: all 0.3s ease-in-out;
+  }
+  
+  /* Reset and Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Darker Grotesque', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(var(--color-background), 0.9);
+    z-index: 1000;
+    padding: 1rem 0;
+  }
+  
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .fraternity-name {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .chapter-name {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .menu-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: 'Syncopate', sans-serif;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    color: var(--color-primary);
+  }
+  
+  /* Page Header */
+  .page-header {
+    padding: 8rem 0;
+    background: var(--color-background);
+    position: relative;
+    margin-top: 70px; /* Adjust for fixed navigation */
+  }
+  
+  .page-header h1 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .page-header h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+  }
+  
+  .header-info {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    opacity: 0.7;
+    padding-left: 1.5rem;
+  }
+  
+  /* Sections */
+  section {
+    padding: 6rem 0;
+    position: relative;
+  }
+  
+  .section-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(var(--color-primary), 0.2);
+  }
+  
+  .section-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 100%;
+    background: var(--color-primary);
+    transform: translateY(-50%);
+  }
+  
+  .content-block {
+    padding-left: 1.5rem;
+    max-width: 1200px;
+  }
+  
+  /* History Section */
+  .charter-members h3 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  .members-list {
+    list-style: none;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.8;
+  }
+  
+  /* Achievements Section */
+  .achievement-major {
+    margin-bottom: 4rem;
+  }
+  
+  .achievement-major h3 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+  
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .achievement-card {
+    padding: 2rem;
+    background: rgba(var(--color-text), 0.02);
+    border-left: 4px solid var(--color-primary);
+    transition: var(--transition);
+  }
+  
+  .achievement-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .achievement-card h4 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  .achievement-card ul {
+    list-style: none;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+  
+  /* Leadership Section */
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .leadership-card {
+    padding: 2rem;
+    background: rgba(var(--color-text), 0.02);
+    border-left: 4px solid var(--color-primary);
+    transition: var(--transition);
+  }
+  
+  .leadership-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .leadership-card h4 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  .leadership-card ul {
+    list-style: none;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+  
+  .leadership-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+  
+  /* Years List Styling */
+  .years-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .years-list li {
+    background: rgba(var(--color-primary), 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 2px;
+  }
+  
+  /* Footer */
+  .footer {
+    background: rgba(var(--color-text), 0.05);
+    padding: 3rem 0;
+    margin-top: 3rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .footer-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.3rem;
+    display: block;
+  }
+  
+  .footer-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
+  .footer-right p {
+    text-align: right;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 767px) {
+    .nav-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .menu {
+      margin-top: 1rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .page-header {
+      padding: 6rem 0;
+      margin-top: 100px;
+    }
+  
+    section {
+      padding: 4rem 0;
+    }
+  
+    .content-block {
+      padding-left: 0;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  
+    .footer-right p {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  /* Scroll Bar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+  }
+  
+  /* Print Styles */
+  @media print {
+    body {
+      background: white;
+      color: black;
+    }
+  
+    .nav,
+    .scroll-indicator {
+      display: none;
+    }
+  
+    .page-header,
+    section {
+      padding: 2rem 0;
+    }
+  
+    .page-header h1,
+    .section-title {
+      color: black;
+    }
+  
+    .page-header h1::before,
+    .section-title::before,
+    .section-marker {
+      background: black;
+    }
+  
+    .achievement-card,
+    .leadership-card {
+      border-left-color: black;
+    }
+  
+    .footer {
+      background: white;
+      color: black;
+    }
+  }
+
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjustable overlay opacity */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white; /* Ensures text is visible over video */
+}

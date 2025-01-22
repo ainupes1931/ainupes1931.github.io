@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Iota Chapter | Kappa Alpha Psi® Fraternity, Inc.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Darker+Grotesque:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->  
+    <div class="loader">
+        <img src="KAPsiCrest (4).png" alt="Kappa Alpha Psi Crest" class="loader-logo">
+        <div class="loader-progress"></div>
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <span class="fraternity-name">ΚΑΨ</span>
+                <span class="chapter-name">ALPHA IOTA</span>
+            </a>
+            <div class="menu">
+                <a href="about.html" class="menu-link">ABOUT</a>
+                <a href="brothers.html" class="menu-link">BROTHERS</a>
+            </div>
+        </div>
+    </nav>
+
+ <!-- Hero Section -->
+<main class="hero">
+    <div class="hero-bg">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="szn.mp4" type="video/mp4">
+            <!-- You can add additional source formats for better browser compatibility -->
+            <!-- <source src="your-video.webm" type="video/webm"> -->
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="fraternity-title">
+            <h2>KAPPA ALPHA PSI®</h2>
+            <h3>FRATERNITY, INCORPORATED</h3>
+            <h3>PRESENTS</h3>
+        </div>
+        <div class="chapter-title">
+            <h1>ALPHA IOTA <span class="chapter-letters">(AI)</span></h1>
+            <div class="chapter-subtitle">THE MOST NOTORIOUS CHAPTER</div>
+        </div>
+        <div class="hero-info">
+            <p>Morgan State University · Baltimore, MD</p>
+            <p>Chartered May 29, 1931</p>
+        </div>
+    </div>
+</main>
+
+    <!-- Brothers Highlight Section -->
+<section class="brothers-highlight">
+    <div class="container">
+        <h2 class="section-title">BROTHERS MAKING IMPACT</h2>
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="brother.jpg" alt="Harold Lamour">
+                </div>
+                <div class="highlight-content">
+                    <h3 class="brother-name">(1AI23FA)Godley Pierre</h3>
+                    <p class="brother-achievement">
+                        Polemarch & Charter Member of Alpha Kappa Psi Business Fraternity
+                    </p>
+                    <div class="achievement-details">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="cc.jpg" alt="Xavier Johnson">
+                </div>
+                <div class="highlight-content">
+                    <h3 class="brother-name">(0AI23SP) Xavier Johnson</h3>
+                    <p class="brother-achievement">
+                         Mister Morgan of Morgan State University, & Junior Vice Polemarch of the Eastern Province
+                    </p>
+                    <div class="achievement-details">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mean-mugging">
+    <div class="container">
+        <h2 class="section-title">THE GOOOOD Brothers</h2>
+        
+        <div class="mean-mug-grid">
+            <!-- Recent Line Photo -->
+            <div class="mug-card">
+                <div class="mug-image">
+                    <img src="Please Welcome The Fall 24 Initiates Of The Alpha Iota Chapter Of Kappa Alpha Psi Fraternity Inc. 11 Survivors of DestruKtion, Kontesting the Kurses of Korruption , While Struggling to Attain the True Value of the Diamond  Ser- 0AI13FA Ha.jpg" alt="Recent Line Mean Mugging">
+                    <div class="brother-info">
+                        <span class="line-name">"11 SURVIVORS OF DESTRUKTION"</span>
+                        <span class="line-year">FALL '24</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Older Line Photo -->
+            <div class="mug-card">
+                <div class="mug-image">
+                    <img src="kappa.jpg" alt="Older Line Mean Mugging">
+                    <div class="brother-info">
+                        <span class="line-name">" 5 Kombatants of Katastrophe"</span>
+                        <span class="line-year">FALL '23</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.mean-mugging {
+    background-color: #000;
+    padding: 4rem 0;
+    color: #fff;
+}
+
+.mean-mug-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.mug-card {
+    position: relative;
+    border: 2px solid #CD1010;
+    transition: transform 0.3s ease;
+}
+
+.mug-card:hover {
+    transform: scale(1.02);
+}
+
+.mug-image {
+    position: relative;
+    aspect-ratio: 3/4;
+}
+
+.mug-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(110%) grayscale(50%);
+}
+
+.brother-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: center;
+}
+
+.line-name {
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #CD1010;
+    letter-spacing: 0.1em;
+    display: block;
+}
+
+.line-year {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.section-title {
+    font-family: 'Syncopate', sans-serif;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+</style>
+
+</style>
+
+     <!-- Older Lines Section -->
+<div class="line-section">
+    <h3 class="line-title"></h3>
+    <div class="mean-mug-grid">
+        <div class="mug-card">
+            <div class="mug-image">
+                <img src="Happy Kappaversary to the 9 Executioners of Egality.jpg" alt="Older Line Brother Mean Mugging">
+                <div class="brother-info">
+                    <span class="line-name">9 Executioners of Egality</span>
+                    <span class="line-year">FALL '13</span>
+                </div>
+            </div>
+        </div>
+        <div class="mug-card">
+            <div class="mug-image">
+                <img src="8years.jpg" alt="Older Line Brother Mean Mugging">
+                <div class="brother-info">
+                    <span class="line-name">14 Regents of Reformation</span>
+                    <span class="line-year">FALL '16</span>
+                </div>
+            </div>
+        </div>
+        <div class="mug-card">
+            <div class="mug-image">
+                <img src="ai.jpg" alt="Older Line Brother Mean Mugging">
+                <div class="brother-info">
+                    <span class="line-name">8 Krusaders of the Kavalry</span>
+                    <span class="line-year">FALL '22</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.mean-mugging {
+    background-color: #000;
+    padding: 4rem 0;
+    color: #fff;
+}
+
+.line-section {
+    margin-bottom: 4rem;
+}
+
+.line-section:last-child {
+    margin-bottom: 0;
+}
+
+.line-title {
+    font-family: 'Syncopate', sans-serif;
+    color: #CD1010;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.mean-mug-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.mug-card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #CD1010;
+    transition: transform 0.3s ease;
+}
+
+.mug-card:hover {
+    transform: scale(1.02);
+}
+
+.mug-image {
+    position: relative;
+    aspect-ratio: 3/4;
+}
+
+.mug-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(110%) grayscale(50%);
+}
+
+.brother-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: center;
+}
+
+.line-name {
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #CD1010;
+    letter-spacing: 0.1em;
+    display: block;
+}
+
+.line-number, .line-year {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    display: block;
+    margin-top: 0.5rem;
+}
+</style>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">THE BENCHMARK</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Historically "THE BENCHMARK" of collegiate leadership in Kappa Alpha Psi®, the Alpha Iota Chapter has set the standard for achievement, brotherhood, and excellence since 1931.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">1931</span>
+                        <span class="stat-label">ESTABLISHED</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2009</span>
+                        <span class="stat-label">INTERNATIONAL CHAPTER OF THE YEAR</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">#1</span>
+                        <span class="stat-label">MOST KAPPA FELLOWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="achievement">
+        <div class="achievement-content">
+            <h2 class="achievement-title">ACHIEVEMENT IN EVERY FIELD</h2>
+            
+            <div class="achievement-text">
+                <h2>A TRADITION OF EXCELLENCE</h2>
+                <p>From Grand Chapter Officers to Province Leadership, AI Chapter continues to exemplify the values and ideals of Kappa Alpha Psi® Fraternity, Inc.</p>
+                <a href="/history" class="explore-link"></a>
+            </div>
+        </div>
+    
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p class="footer-text">Website by <span class="signature">Reezy</span></p>
+                    <p class="footer-text"> #LLCarter</p>
+                </div>
+            </div>
+        </footer>
+    
+
+    
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
